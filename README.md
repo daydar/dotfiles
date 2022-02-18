@@ -1,2 +1,2 @@
 # dotfiles
-repo for personal shell configs
+repo for personal shell configurations
