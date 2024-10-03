@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/deniz/.oh-my-zsh"
 
+
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -71,6 +73,26 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+
+plugin=(
+  pyenv
+)
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+jdk() {
+	version=$1
+	unset JAVA_HOME;
+	export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+	java -version
+}
+
+
 plugins=(
 	git
 	zsh-autosuggestions
@@ -81,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+export OPENAI_API_KEY="INSERT-KEY"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -108,6 +131,86 @@ source $ZSH/oh-my-zsh.sh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
+# Load Antigen
+source "/Users/deniz/antigen.zsh"
+
+# Load Antigen configurations
+antigen init ~/.antigenrc
+
+
 # export PATH=$HOME/.hidden-directories/.cargo/bin:$PATH
 
+# export ZSH="/Users/deniz/.oh-my-zsh"
 
+# source $HOME/antigen.zsh
+    
+# # Load the oh-my-zsh's library
+# antigen use oh-my-zsh
+
+# antigen bundle <<EOBUNDLES
+#     # Bundles from the default repo (robbyrussell's oh-my-zsh)
+#     git
+
+#     # Syntax highlighting bundle.
+#     zsh-users/zsh-syntax-highlighting
+
+#     # Fish-like auto suggestions
+#     zsh-users/zsh-autosuggestions
+
+#     # Extra zsh completions
+#     zsh-users/zsh-completions
+# EOBUNDLES
+
+# # Load the theme
+# antigen theme robbyrussell
+
+# # Tell antigen that you're done
+# antigen apply
+
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# export PATH="/Library/TeX/texbin/:$PATH"
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/deniz/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/deniz/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/deniz/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/deniz/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+eval export PATH="/Users/deniz/.jenv/shims:${PATH}"
+export JENV_SHELL=zsh
+export JENV_LOADED=1
+unset JAVA_HOME
+unset JDK_HOME
+source '/opt/homebrew/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
+jenv rehash 2>/dev/null
+jenv refresh-plugins
+jenv() {
+  type typeset &> /dev/null && typeset command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  enable-plugin|rehash|shell|shell-options)
+    eval `jenv "sh-$command" "$@"`;;
+  *)
+    command jenv "$command" "$@";;
+  esac
+}
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
