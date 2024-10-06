@@ -1,2 +1,4 @@
 # dotfiles
-repo for personal shell configurations
+Repo for personal shell configurations
+
+This repo is tracked with [yadm](https://yadm.io/)
