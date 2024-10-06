@@ -1,15 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your oh-my-zsh installation. 
+# Placed here since it is for interactive shell session
 export ZSH="/Users/deniz/.oh-my-zsh"
-
-
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+
 ZSH_THEME="robbyrussell"
 #ZSH_THEME="passion"
 
@@ -19,30 +19,8 @@ ZSH_THEME="robbyrussell"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -50,7 +28,7 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
 # See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-# COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="TRUE"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -74,36 +52,21 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
-
-plugin=(
+plugins=(
+  git
   pyenv
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
+#This line initializes pyenv by evaluating its startup script
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-jdk() {
-	version=$1
-	unset JAVA_HOME;
-	export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
-	java -version
-}
-
-
-plugins=(
-	git
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export OPENAI_API_KEY="INSERT-KEY"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -140,8 +103,6 @@ antigen init ~/.antigenrc
 
 # export PATH=$HOME/.hidden-directories/.cargo/bin:$PATH
 
-# export ZSH="/Users/deniz/.oh-my-zsh"
-
 # source $HOME/antigen.zsh
     
 # # Load the oh-my-zsh's library
@@ -161,16 +122,6 @@ antigen init ~/.antigenrc
 #     zsh-users/zsh-completions
 # EOBUNDLES
 
-# # Load the theme
-# antigen theme robbyrussell
-
-# # Tell antigen that you're done
-# antigen apply
-
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# export PATH="/Library/TeX/texbin/:$PATH"
-
 
 
 # >>> conda initialize >>>
@@ -188,12 +139,17 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# jenv initialize
 eval export PATH="/Users/deniz/.jenv/shims:${PATH}"
-export JENV_SHELL=zsh
-export JENV_LOADED=1
 unset JAVA_HOME
 unset JDK_HOME
-source '/opt/homebrew/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
+
+# 1. Find the latest version of jenv
+JENV_VERSION=$(ls /opt/homebrew/Cellar/jenv | sort -V | tail -n 1)
+# 2. Set the source path dynamically based on the latest version
+source "/opt/homebrew/Cellar/jenv/$JENV_VERSION/libexec/libexec/../completions/jenv.zsh"
+
 jenv rehash 2>/dev/null
 jenv refresh-plugins
 jenv() {
@@ -210,7 +166,22 @@ jenv() {
     command jenv "$command" "$@";;
   esac
 }
+
+# This defines a function in your shell called jdk. 
+# When you type jdk followed by a version number in the terminal, 
+# this function gets executed.
+jdk() {
+  version=$1
+  unset JAVA_HOME;
+  export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+  java -version
+}
+
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
+
+# Tell antigen that you're done
+antigen apply
+
