@@ -1,17 +1,17 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Path to your oh-my-zsh installation. 
 # Placed here since it is for interactive shell session
-export ZSH="/Users/deniz/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-ZSH_THEME="robbyrussell"
-#ZSH_THEME="passion"
+# ZSH_THEME="robbyrussell"
+# ZSH_THEME="passion"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -43,9 +43,6 @@ ZSH_THEME="robbyrussell"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -54,23 +51,22 @@ ZSH_THEME="robbyrussell"
 
 plugins=(
   git
-  pyenv
+  # pyenv
+  zsh-bat
   zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-history-substring-search
 )
 
 #This line initializes pyenv by evaluating its startup script
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -79,48 +75,26 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# personal aliases
+## Configs
+alias gitconfig="open ~/.config/git/config"
+alias sshconfig="open ~/.ssh/config"
+alias zshconfig="open ~/.zshrc"
+alias zshenv="open ~/.zshenv"
+alias listPath="tr ':' '\n' <<< '$PATH'"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+## Servers
+alias yasmaServer="ssh -t yasmaServer"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+## CLI tools
+alias lg="lazygit"
+alias e="eza -l -a --icons"
+# alias fzf="fzf --height 40% --layout reverse --border --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
 
-
-# Load Antigen
-source "/Users/deniz/antigen.zsh"
-
-# Load Antigen configurations
-antigen init ~/.antigenrc
-
-
-# export PATH=$HOME/.hidden-directories/.cargo/bin:$PATH
-
-# source $HOME/antigen.zsh
-    
-# # Load the oh-my-zsh's library
-# antigen use oh-my-zsh
-
-# antigen bundle <<EOBUNDLES
-#     # Bundles from the default repo (robbyrussell's oh-my-zsh)
-#     git
-
-#     # Syntax highlighting bundle.
-#     zsh-users/zsh-syntax-highlighting
-
-#     # Fish-like auto suggestions
-#     zsh-users/zsh-autosuggestions
-
-#     # Extra zsh completions
-#     zsh-users/zsh-completions
-# EOBUNDLES
+alias di="docker images [--format] | docker-color-output"
+alias dps="docker ps [-a] [--format] | docker-color-output"
+alias dcps="docker compose ps | docker-color-output"
+alias ds="docker stats [--no-stream] | docker-color-output"
 
 
 
@@ -177,11 +151,34 @@ jdk() {
   java -version
 }
 
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
+# zsh plugins
 
-# Tell antigen that you're done
-antigen apply
+source ~/.oh-my-zsh/plugins/git/git.plugin.zsh
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOMEBREW_PREFIX/share/zsh-you-should-use/you-should-use.plugin.zsh
 
+# keybindings
+
+# bindkey "^[[A" history-substring-search-up
+# bindkey "^[[B" history-substring-search-down
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# zsh
+zstyle ':autocomplete:*' delay 0.2  # seconds (float)
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+
+
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh)"
+fi
+
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/takuya.omp.json)"
+
+# uv python package manager
+eval "$(uv generate-shell-completion zsh)"
+
+export PATH="$HOME/go/bin:$PATH"
