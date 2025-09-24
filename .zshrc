@@ -96,24 +96,6 @@ alias dps="docker ps [-a] [--format] | docker-color-output"
 alias dcps="docker compose ps | docker-color-output"
 alias ds="docker stats [--no-stream] | docker-color-output"
 
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/deniz/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/deniz/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/deniz/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/deniz/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
 # jenv initialize
 eval export PATH="/Users/deniz/.jenv/shims:${PATH}"
 unset JAVA_HOME
