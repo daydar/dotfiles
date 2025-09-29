@@ -1,0 +1,90 @@
+{
+    "workbench.startupEditor": "none",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.autoSave": "afterDelay",
+    "workbench.tree.indent": 20,
+    "workbench.tree.renderIndentGuides": "always",
+    "git.autofetch": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": 1,
+    "workbench.editor.wrapTabs": true,
+    "typescript.format.semicolons": "insert",
+    "redhat.telemetry.enabled": false,
+    "editor.inlayHints.fontSize": 10,
+    "editor.inlayHints.enabled": "onUnlessPressed",
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.inlayHints.parameterNames.enabled": "all",
+    "javascript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlayHints.enumMemberValues.enabled": true,
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "javascript.inlayHints.variableTypes.enabled": true,
+    "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": false,
+    "typescript.inlayHints.variableTypes.enabled": true,
+    "projectManager.git.baseFolders": [
+        "/Users/deniz/Dev/Projects"
+    ],
+    "debug.onTaskErrors": "showErrors",
+    "rust-analyzer.completion.privateEditable.enable": true,
+    "editor.smoothScrolling": true,
+    "editor.mouseWheelScrollSensitivity": 0.5,
+    "workbench.list.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+    "workbench.list.mouseWheelScrollSensitivity": 0.5,
+    "terminal.integrated.mouseWheelScrollSensitivity": 0.5,
+    "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+    "lldb.launch.expressions": "native",
+    "workbench.editor.pinnedTabsOnSeparateRow": true,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off"
+    },
+    "dart.debugExternalPackageLibraries": false,
+    "dart.debugSdkLibraries": false,
+    "codeium.enableCodeLens": false,
+    "dart.openDevTools": "flutter",
+    "cmake.configureOnOpen": true,
+    "cmake.showOptionsMovedNotification": false,
+    "workbench.colorTheme": "Ayu Mirage Bordered",
+    "workbench.iconTheme": "ayu",
+    "vim.smartRelativeLine": true,
+    "editor.cursorSurroundingLines": 8,
+    "window.nativeTabs": true,
+    "terminal.integrated.fontFamily": "CaskaydiaCove NFM",
+    "terminal.integrated.stickyScroll.enabled": true,
+    "editor.stickyScroll.enabled": false,
+    "terminal.integrated.fontSize": 13,
+    "extensions.ignoreRecommendations": true,
+    "files.dialog.defaultPath": "/Users/deniz/Dev",
+    "docker.extension.enableComposeLanguageServer": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "github.copilot.chat.copilotDebugCommand.enabled": false
+}
