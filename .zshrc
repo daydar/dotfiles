@@ -77,10 +77,11 @@ source $ZSH/oh-my-zsh.sh
 
 # personal aliases
 ## Configs
-alias gitconfig="open ~/.config/git/config"
-alias sshconfig="open ~/.ssh/config"
-alias zshconfig="open ~/.zshrc"
-alias zshenv="open ~/.zshenv"
+alias sublime="open -a /Applications/Sublime\ Text.app"
+alias gitconfig="sublime ~/.gitconfig"
+alias sshconfig="sublime ~/.ssh/config"
+alias zshconfig="sublime ~/.zshrc"
+alias zshenv="sublime ~/.zshenv"
 alias listPath="tr ':' '\n' <<< '$PATH'"
 
 ## Servers
