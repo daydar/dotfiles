@@ -92,6 +92,19 @@ alias lg="lazygit"
 alias e="eza -l -a --icons"
 # alias fzf="fzf --height 40% --layout reverse --border --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
 
+### List all files/folders:
+alias ls="eza -la --git --group-directories-first --icons"
+
+### List all folders:
+alias lsd="eza -laD --git --icons"
+
+### Show a tree view of a directory:
+alias lst="eza -T --group-directories-first --icons -I=.git\|.history\|node_modules"
+
+### Show a tree view of your folder structure:
+### Tip: you want to limit depth? Just append -L <level_number> like lstd -L 2
+alias lstd="eza -DT -L 2 --icons -I=.git\|.history\|node_modules"
+
 alias di="docker images [--format] | docker-color-output"
 alias dps="docker ps [-a] [--format] | docker-color-output"
 alias dcps="docker compose ps | docker-color-output"
