@@ -99,7 +99,7 @@ alias ls="eza -la --git --group-directories-first --icons"
 alias lsd="eza -laD --git --icons"
 
 ### Show a tree view of a directory:
-alias lst="eza -T --group-directories-first --icons -I=.git\|.history\|node_modules"
+alias lst="eza -T -L 2 --group-directories-first --icons -I=.git\|.history\|node_modules"
 
 ### Show a tree view of your folder structure:
 ### Tip: you want to limit depth? Just append -L <level_number> like lstd -L 2
