@@ -110,46 +110,7 @@ alias dps="docker ps [-a] [--format] | docker-color-output"
 alias dcps="docker compose ps | docker-color-output"
 alias ds="docker stats [--no-stream] | docker-color-output"
 
-# jenv initialize
-eval export PATH="/Users/deniz/.jenv/shims:${PATH}"
-unset JAVA_HOME
-unset JDK_HOME
-
-# 1. Find the latest version of jenv
-JENV_VERSION=$(ls /opt/homebrew/Cellar/jenv | sort -V | tail -n 1)
-# 2. Set the source path dynamically based on the latest version
-source "/opt/homebrew/Cellar/jenv/$JENV_VERSION/libexec/libexec/../completions/jenv.zsh"
-
-jenv rehash 2>/dev/null
-jenv refresh-plugins
-jenv() {
-  type typeset &> /dev/null && typeset command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  enable-plugin|rehash|shell|shell-options)
-    eval `jenv "sh-$command" "$@"`;;
-  *)
-    command jenv "$command" "$@";;
-  esac
-}
-
-# This defines a function in your shell called jdk. 
-# When you type jdk followed by a version number in the terminal, 
-# this function gets executed.
-jdk() {
-  version=$1
-  unset JAVA_HOME;
-  export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
-  java -version
-}
-
-
 # zsh plugins
-
 source ~/.oh-my-zsh/plugins/git/git.plugin.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
