@@ -7,17 +7,63 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "features": {
-    "edit_prediction_provider": "zed"
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "agent_servers": {
+    "qwen-code": {
+      "type": "registry"
+    }
+  },
+  "buffer_line_height": "comfortable",
+  "buffer_font_family": "Cascadia Code",
+  "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    }
+  },
+  "edit_predictions": {
+    "allow_data_collection": "no",
+    "mode": "eager",
+    "provider": "zed"
+  },
+  "autosave": "on_focus_change",
+  "icon_theme": "Colored Zed Icons Theme Dark",
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+    "background_coloring": "indent_aware",
   },
   "agent": {
+    "dock": "right",
     "default_model": {
       "provider": "openai",
-      "model": "gpt-3.5-turbo"
+      "model": "gpt-3.5-turbo",
     },
   },
   "telemetry": {
-    "metrics": false
+    "metrics": false,
   },
   "use_system_window_tabs": true,
   "terminal": {
@@ -28,8 +74,8 @@
     "detect_venv": {
       "on": {
         "directories": [".env", "env", ".venv", "venv"],
-        "activate_script": "default"
-      }
+        "activate_script": "default",
+      },
     },
     "env": {},
     "font_family": "CaskaydiaCove Nerd Font",
@@ -37,16 +83,16 @@
     "option_as_meta": false,
     "button": false,
     "toolbar": {
-      "breadcrumbs": true
+      "breadcrumbs": false,
     },
-    "working_directory": "current_project_directory"
+    "working_directory": "current_project_directory",
   },
   "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "buffer_font_size": 16.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Ayu Dark"
+    "dark": "Ayu Dark",
   },
   "inlay_hints": {
     // Global switch to toggle hints on and off, switched off by default.
@@ -65,6 +111,6 @@
     "edit_debounce_ms": 700,
     // Time to wait after scrolling the buffer, before requesting the hints,
     // set to 0 to disable debouncing.
-    "scroll_debounce_ms": 50
-  }
+    "scroll_debounce_ms": 50,
+  },
 }

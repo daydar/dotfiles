@@ -1,6 +1,8 @@
-theme = "onedark"
+theme = "ayu_mirage"
 
 [editor]
+completion-trigger-len = 1
+completion-timeout = 100
 line-number = "relative"
 mouse = false
 

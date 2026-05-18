@@ -57,7 +57,6 @@
     "dart.openDevTools": "flutter",
     "cmake.configureOnOpen": true,
     "cmake.showOptionsMovedNotification": false,
-    "workbench.colorTheme": "Ayu Mirage Bordered",
     "workbench.iconTheme": "ayu",
     "vim.smartRelativeLine": true,
     "editor.cursorSurroundingLines": 8,
@@ -86,5 +85,25 @@
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "github.copilot.chat.copilotDebugCommand.enabled": false
+    "github.copilot.chat.copilotDebugCommand.enabled": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "codeium.enableConfig": {
+        "*": true,
+        "markdown": true
+    },
+    "workbench.colorTheme": "Ayu Mirage Bordered"
 }

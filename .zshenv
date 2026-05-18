@@ -40,6 +40,7 @@ export N_PREFIX=$XDG_CACHE_HOME
 # Rust
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 #OPENAI
 if [[ -f "$HOME/.secrets" ]]; then
@@ -58,3 +59,6 @@ export FZF_DEFAULT_OPTS="--height 40% --layout reverse --border --preview 'fzf-p
 
 
 . "/Users/deniz/.local/share/cargo/env"
+
+# uv
+export PATH="/Users/deniz/.local/share/../bin:$PATH"

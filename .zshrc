@@ -56,7 +56,31 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-history-substring-search
+#  zsh-helix-mode
 )
+
+
+# # Compatibility for zsh-autosuggestions
+# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=( 
+#     zhm_history_prev 
+#     zhm_history_next 
+#     zhm_prompt_accept 
+#     zhm_accept 
+#     zhm_accept_or_insert_newline 
+# )
+
+# ZSH_AUTOSUGGEST_ACCEPT_WIDGETS+=( 
+#     zhm_move_right 
+#     zhm_clear_selection_move_right 
+# )
+
+# ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=( 
+#     zhm_move_next_word_start 
+#     zhm_move_next_word_end 
+# )
+
+# zhm_wrap_widget fzf-history-widget zhm_fzf_history
+# bindkey '^R' zhm_fzf_history
 
 #This line initializes pyenv by evaluating its startup script
 # eval "$(pyenv init -)"
@@ -79,12 +103,14 @@ source $ZSH/oh-my-zsh.sh
 ## Configs
 alias sublime="open -a /Applications/Sublime\ Text.app"
 alias gitconfig="sublime ~/.gitconfig"
+alias helixconfig="hx ~/.config/helix/config.toml"
 alias sshconfig="sublime ~/.ssh/config"
 alias zshconfig="sublime ~/.zshrc"
 alias zshenv="sublime ~/.zshenv"
 alias listPath="tr ':' '\n' <<< '$PATH'"
 
 ## Servers
+alias localdns="sudo vim /etc/hosts"
 alias yasmaServer="ssh -t yasmaServer"
 
 ## CLI tools
@@ -116,6 +142,8 @@ source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOMEBREW_PREFIX/share/zsh-you-should-use/you-should-use.plugin.zsh
+
+autoload zmv
 
 # keybindings
 
