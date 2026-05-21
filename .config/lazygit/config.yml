@@ -1,0 +1,74 @@
+gui:
+  scrollHeight: 2
+  scrollPastBottom: true
+  scrollOffMargin: 2
+  scrollOffBehavior: margin
+  tabWidth: 4
+  mouseEvents: true
+  skipAmendWarning: false
+  skipDiscardChangeWarning: false
+  skipStashWarning: false
+  skipNoStagedFilesWarning: false
+  skipRewordInEditorWarning: false
+  skipSwitchWorktreeOnCheckoutWarning: false
+  sidePanelWidth: 0.3333
+  expandFocusedSidePanel: false
+  expandedSidePanelWeight: 2
+  mainPanelSplitMode: flexible
+  enlargedSideViewLocation: left
+  wrapLinesInStagingView: true
+  useHunkModeInStagingView: true
+  language: auto
+  timeFormat: 02 Jan 06
+  shortTimeFormat: 3:04PM
+  showListFooter: true
+  showFileTree: true
+  showRootItemInFileTree: true
+  fileTreeSortOrder: mixed
+  fileTreeSortCaseSensitive: true
+  showNumstatInFilesView: false
+  showRandomTip: true
+  showCommandLog: true
+  showBottomLine: true
+  showPanelJumps: true
+  showIcons: false
+  showFileIcons: true
+  commitAuthorShortLength: 2
+  commitAuthorLongLength: 17
+  commitHashLength: 8
+  showBranchCommitHash: false
+  showDivergenceFromBaseBranch: none
+  commandLogSize: 8
+  splitDiff: auto
+  screenMode: normal
+  border: rounded
+  animateExplosion: true
+  portraitMode: auto
+  portraitModeAutoMaxWidth: 84
+  portraitModeAutoMinHeight: 46
+  filterMode: substring
+  statusPanelView: dashboard
+  switchToFilesAfterStashPop: true
+  switchToFilesAfterStashApply: true
+  switchTabsWithPanelJumpKeys: false
+  theme:
+    # ayu mirage theme
+    activeBorderColor:
+      - "#73D0FF" # bright blue for active border
+      - bold
+    inactiveBorderColor:
+      - "#4D5A6F" # muted blue-gray for inactive borders
+    optionsTextColor:
+      - "#73D0FF" # same accent blue for options text
+    selectedLineBgColor:
+      - "#2C3B4F" # subtle dark blue for selected line background
+    cherryPickedCommitBgColor:
+      - "#2D4F3A" # dark greenish background for cherry-picked commits
+    cherryPickedCommitFgColor:
+      - "#B8CC52" # soft green for cherry-picked commit text
+    unstagedChangesColor:
+      - "#FF3333" # vivid red for unstaged changes
+    defaultFgColor:
+      - "#CBD6E6" # default foreground (light gray-blue)
+    searchingActiveBorderColor:
+      - "#F3E079" # warm yellow for active search border
