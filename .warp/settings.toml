@@ -74,4 +74,4 @@ play_notification_sound = true
 show_warning_before_quitting = false
 
 [keys]
-ctrl_tab_behavior_setting = "cycle_most_recent_session"
+ctrl_tab_behavior_setting = "cycle_most_recent_tab"
