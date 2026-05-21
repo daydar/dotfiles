@@ -1,0 +1,35 @@
+name = "Yasma IDE Config"
+
+[[panes]]
+id = "p1"
+split = "vertical"
+children = [
+    "p2",
+    "p3",
+]
+
+[[panes]]
+id = "p2"
+type = "terminal"
+directory = "/Users/deniz/Dev/Projects/Hobbies/s0cean/yasma"
+
+[[panes]]
+id = "p3"
+split = "horizontal"
+children = [
+    "p4",
+    "p5",
+]
+
+[[panes]]
+id = "p4"
+type = "terminal"
+directory = "/Users/deniz/Dev/Projects/Hobbies/s0cean/yasma"
+
+[[panes]]
+id = "p5"
+type = "terminal"
+is_focused = true
+directory = "/Users/deniz/Dev/Projects/Hobbies/s0cean/yasma"
+
+[params]
