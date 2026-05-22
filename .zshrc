@@ -102,15 +102,15 @@ source $ZSH/oh-my-zsh.sh
 # personal aliases
 ## Configs
 alias sublime="open -a /Applications/Sublime\ Text.app"
-alias gitconfig="sublime ~/.gitconfig"
+alias gitconfig="hx ~/.gitconfig"
 alias helixconfig="hx ~/.config/helix/config.toml"
-alias sshconfig="sublime ~/.ssh/config"
-alias zshconfig="sublime ~/.zshrc"
-alias zshenv="sublime ~/.zshenv"
+alias sshconfig="hx ~/.ssh/config"
+alias zshconfig="hx ~/.zshrc"
+alias zshenv="hx ~/.zshenv"
 alias listPath="tr ':' '\n' <<< '$PATH'"
 
 ## Servers
-alias localdns="sudo vim /etc/hosts"
+alias localdns="sudo hx /etc/hosts"
 alias yasmaServer="ssh -t yasmaServer"
 
 ## CLI tools
